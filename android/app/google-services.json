@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "118248156698",
+    "project_id": "flutter-web-app1-81b15",
+    "storage_bucket": "flutter-web-app1-81b15.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118248156698:android:3d5dbd96294871cc51aba3",
+        "android_client_info": {
+          "package_name": "com.example.flutter_web_app1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlN7Up5U7JS6s3fPzBjTd_WmsDGch4G9g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
