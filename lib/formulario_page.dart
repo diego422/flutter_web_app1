@@ -10,12 +10,12 @@ class FormularioPage extends StatefulWidget {
 
 class _FormularioPageState extends State<FormularioPage> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _gmailController = TextEditingController();
-  final TextEditingController _ageController = TextEditingController();
-  final TextEditingController _countryController = TextEditingController();
-  final TextEditingController _dobController = TextEditingController();
-  final TextEditingController _phoneController = TextEditingController();
+  final _nameController = TextEditingController();
+  final _gmailController = TextEditingController();
+  final _ageController = TextEditingController();
+  final _countryController = TextEditingController();
+  final _dobController = TextEditingController();
+  final _phoneController = TextEditingController();
 
   Future<void> _saveData() async {
     if (_formKey.currentState!.validate()) {
@@ -29,11 +29,9 @@ class _FormularioPageState extends State<FormularioPage> {
       });
 
       if (!mounted) return;
-
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Datos guardados en Firebase 🎉')),
       );
-
       _formKey.currentState!.reset();
       _nameController.clear();
       _gmailController.clear();
@@ -47,7 +45,16 @@ class _FormularioPageState extends State<FormularioPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Formulario Firebase")),
+      appBar: AppBar(
+        title: const Text("Formulario Firebase"),
+        actions: [
+          IconButton(
+            tooltip: 'Nuevo suministro',
+            icon: const Icon(Icons.inventory_2),
+            onPressed: () => Navigator.pushNamed(context, '/suministro'),
+          ),
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -57,12 +64,12 @@ class _FormularioPageState extends State<FormularioPage> {
               TextFormField(
                 controller: _nameController,
                 decoration: const InputDecoration(labelText: "Name"),
-                validator: (v) => v!.isEmpty ? "Campo requerido" : null,
+                validator: (v) => (v == null || v.isEmpty) ? "Campo requerido" : null,
               ),
               TextFormField(
                 controller: _gmailController,
                 decoration: const InputDecoration(labelText: "Gmail"),
-                validator: (v) => v!.isEmpty ? "Campo requerido" : null,
+                validator: (v) => (v == null || v.isEmpty) ? "Campo requerido" : null,
               ),
               TextFormField(
                 controller: _ageController,
@@ -90,6 +97,12 @@ class _FormularioPageState extends State<FormularioPage> {
             ],
           ),
         ),
+      ),
+      // Alternativa adicional:
+      floatingActionButton: FloatingActionButton.extended(
+        icon: const Icon(Icons.inventory),
+        label: const Text('Suministro'),
+        onPressed: () => Navigator.pushNamed(context, '/suministro'),
       ),
     );
   }
