@@ -1,6 +1,5 @@
 # flutter_web_app1
 
-Primer proyecto de Flutter web.
 
 ---
 
