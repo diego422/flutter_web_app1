@@ -1,6 +1,6 @@
 # flutter_web_app1
 
-Mi primer Proyecto de Flutter 
+Mi primer Proyecto de Flutter web
 ---
 
 ## 🚀 Funcionalidades principales
